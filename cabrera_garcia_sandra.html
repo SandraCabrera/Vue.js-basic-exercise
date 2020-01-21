@@ -18,7 +18,7 @@
     <table class="table table-hover">
       <thead>
         <tr>
-          <th scope="col">Nombre articulo</th>
+          <th scope="col">Nombre artículo</th>
           <th scope="col">Precio por unidad</th>
           <th scope="col">Unidades</th>
           <th scope="col">Precio total</th>
@@ -38,6 +38,27 @@
 
     <!-- Total de la compra -->
     <h1 class="display-4">Total despesa: </h1>
+
+    <!-- Formulario de compra, añadir elementos o eliminar -->
+    <form>
+        <div class="form-group row" style="margin: 9px;">
+            <div class="col-xs-3">
+              <input class="form-control" type="text" placeholder="Nombre artículo">
+            </div>
+            <div class="col-xs-2" style="margin: 0 0 0 12px;">
+              <input class="form-control" type="number" placeholder="Precio">
+              <small id="passwordHelpInline" class="text-muted">
+                Precio en Euros
+              </small>
+            </div>
+            <div class="col-xs-2" style="margin: 0 0 0 12px;">
+                <button type="button" class="btn btn-outline-success">Añadir</button>
+            </div>
+        </div>
+    </form>
+
+    <button type="button" class="btn btn-outline-danger"  style="margin: 9px;">Eliminar ultima fila</button>
+
 </body>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </html>
