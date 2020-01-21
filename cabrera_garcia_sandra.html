@@ -59,7 +59,7 @@
             </div>
         </form>
 
-        <button type="submit" class="btn btn-outline-danger" style="margin: 9px;">Eliminar ultima fila</button>
+        <button type="submit" class="btn btn-outline-danger" style="margin: 9px;" v-on:click="eliminarArticulo">Eliminar ultima fila</button>
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -81,6 +81,10 @@
                               });
           this.nombre = '';
           this.precio = '';
+        },
+
+        eliminarArticulo: function() {
+            this.articulos.pop()
         }
       }
     });
