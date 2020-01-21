@@ -33,6 +33,13 @@
                     <tr>
                         <td scope="col">{{ articulo.nombre }}</td>
                         <td scope="col">{{ articulo.precio }}</td>
+                        <td scope="col">
+                            <input class="form-control" type="number" placeholder="1" v-model="Unidades">
+                        </td>
+                        <td scope="col">1</td>
+                        <td scope="col">
+                            <button type="button" class="btn btn-danger">Eliminar</button>
+                        </td>
                     </tr>
                 </template>
             </tbody>
