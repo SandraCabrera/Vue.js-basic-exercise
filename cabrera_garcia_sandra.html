@@ -10,6 +10,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <title>Vue.js basic exercise</title>
+    <style>
+        .precioMenor {
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
@@ -29,7 +34,7 @@
                 </tr>
             </thead>
             <tbody>
-                <template v-for="articulo in articulos">
+                <template v-for="articulo in articulos" v-bind:class="{precioMenor: menorPrecio}">
                     <tr>
                         <td scope="col">{{ articulo.nombre }}</td>
                         <td scope="col">{{ articulo.precio }}</td>
@@ -61,7 +66,7 @@
                     </small>
                 </div>
                 <div class="col-xs-2" style="margin: 0 0 0 12px;">
-                    <button type="submit" class="btn btn-outline-success">Añadir</button>
+                    <button type="submit" class="btn btn-outline-success" v-on:click="colorPrecio">Añadir</button>
                 </div>
             </div>
         </form>
@@ -78,21 +83,24 @@
       data:{ 
         nombre: '',
         precio: '',
-        articulos: []
+        articulos: [],
+        menorPrecio: false
       },
       methods: {
         agregarArticulo: function() {
-          this.articulos.push({
-                                nombre: this.nombre,
-                                precio: this.precio
-                              });
+          this.articulos.push({ nombre: this.nombre, precio: this.precio });
           this.nombre = '';
           this.precio = '';
         },
 
         eliminarArticulo: function() {
             this.articulos.pop()
+        },
+
+        colorPrecio: function() {
+           this.menorPrecio = this.precio < 10 ? true : false; 
         }
+
       }
     });
 </script>
